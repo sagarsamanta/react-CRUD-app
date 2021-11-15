@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter,Switch, Route } from "react-router-dom";
+import CreateUser from "./components/CreateUser";
+import DeleteUser from "./components/DeleteUser";
+import EditUser from "./components/EditUser";
+import Home from "./components/Home";
+import NotFound from "./components/NotFound";
+import ViewUser from "./components/ViewUser";
+import UserContext from "./UserContext/UserContext";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserContext>
+        <BrowserRouter>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/delete/:id" exact>
+            <DeleteUser />
+          </Route>
+          <Route path="/View/:id" exact>
+            <ViewUser />
+          </Route>
+          <Route path="/edit/:id" exact>
+            <EditUser />
+          </Route>
+          <Route path="/create" exact>
+            <CreateUser />
+          </Route>
+          <Route >
+            <NotFound />
+          </Route>
+          </Switch>
+        </BrowserRouter>
+      </UserContext>
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.btn_createUser{
+    margin: 15px 10px;
+}
+.btn_viewUser{
+    margin: 0 5px;
+}
+.btn_editUser{
+    margin: 0 5px;
+}
+.btn_deleteUser{
+    margin: 0 5px;
+}
+#no_user_show{
+    text-align: center;
+    align-items: center;
+   color: red;
+}
